@@ -1,0 +1,8 @@
+---
+################################
+# Install autoconf from source #
+################################
+- include_tasks: Redhat/redhat_prerequisites.yml
+  when: ansible_os_family == "RedHat"
+
+- include_tasks: Common/install_re2c.yml

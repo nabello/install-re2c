@@ -1,0 +1,37 @@
+---
+# Make sure necessary directories exist
+- file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ compiling_path }}"
+
+# Clone repositories re2c
+- name: "Clone repositories re2c"
+  git:
+    repo: "{{item.url}}"
+    dest: "{{ compiling_path }}/{{ item.name }}"
+    version: "{{item.tag}}"
+    clone: yes
+    update: no
+  with_items:
+    - "{{ re2c_repository }}"
+
+# Configure & Make re2c project
+- name: "Configure & Make re2c project"
+  command: "{{ item }}"
+  args:
+    chdir: "{{ compiling_path }}/re2c/re2c"
+  with_items:
+    - "./autogen.sh"
+    - "./configure --prefix={{ re2c_install_dir }}"
+    - "make"
+    - "make install"
+    - "make test"
+
+# Clean up
+- file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ compiling_path }}"
