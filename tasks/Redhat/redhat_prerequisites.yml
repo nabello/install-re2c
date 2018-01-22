@@ -1,9 +1,0 @@
----
-# Install EPEL repository and other required packages
-- name: RedHat - Install EPEL Release
-  package: name={{item}} state=latest
-  when: ansible_os_family == "RedHat"
-  register: install_required_packages
-  with_items: "{{ required_packages }}"
-  tags:
-      - redhat_install_required_packages
