@@ -26,7 +26,7 @@
     - "./autogen.sh"
     - "./configure --prefix={{ re2c_install_dir }}"
     - "make"
-    - "make install"
+    - "make {{ re2c_action }}"
 
 # Clean up
 - file:

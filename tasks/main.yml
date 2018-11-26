@@ -2,4 +2,4 @@
 ################################
 # Install autoconf from source #
 ################################
-- include_tasks: Common/install_re2c.yml
+- include_tasks: Common/deploy_re2c.yml

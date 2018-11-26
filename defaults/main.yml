@@ -3,3 +3,4 @@ re2c_version: "1.0.3"
 re2c_repository: {name: 're2c',url: 'https://github.com/skvadrik/re2c.git',tag: "{{ re2c_version }}"}
 compiling_path: '/home/sources'
 re2c_install_dir: '/usr'
+re2c_action: 'install'
