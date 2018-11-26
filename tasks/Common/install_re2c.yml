@@ -27,7 +27,6 @@
     - "./configure --prefix={{ re2c_install_dir }}"
     - "make"
     - "make install"
-    - "make test"
 
 # Clean up
 - file:
